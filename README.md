@@ -1,3 +1,3 @@
-# data-vis-assignment1
+# Data Visualization - Assignment 1
 
 https://jadedeo.github.io/data-vis-assignment1/
