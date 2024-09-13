@@ -45,12 +45,12 @@
               >the fentanyl crisis</a
             >
             have been in the news for years. Will this data reflect that? How
-            have the patterns of substance use in overdose deaths changed over
-            time?
+            have the patterns of substance present in overdose deaths changed
+            over time?
           </li>
           <li>
-            What does this data look like as a function of time? Specifically,
-            did COVID-19 have an effect on overdose rates?
+            What does this data look like as a function of time? Did COVID-19
+            have an effect on overdose rates?
             <a
               href="https://www.who.int/news/item/02-03-2022-covid-19-pandemic-triggers-25-increase-in-prevalence-of-anxiety-and-depression-worldwide"
               >An increase in cases of depression, anxiety, and other mental
@@ -78,10 +78,21 @@
           The dataset includes many entries with zip codes that were clearly not
           in Pennsylvania, and many others still that are not in Allegheny
           county. Despite some refinement, those in the map are still not solely
-          confined to the county. There were also a small number of records with
-          the race of the decedent listed as “None” that needed to be filtered
-          out; I wonder why these records were not classified under
-          "U"/"Unknown".
+          confined to the county; being unfamiliar with the geographic
+          boundaries of the state, I did not feel qualified to perform further
+          exclusions. There were also a small number of records with the race of
+          the decedent listed as “None” that needed to be filtered out; it is
+          unclear why these records were not classified under "U"/"Unknown". It can also be noted that the meanings behind the race abbreviations used in the data were not provided; to my knowledge, there was no key available. I acted under the following assumptions:
+          <ul>
+            <li>W = White</li>
+            <li>B = Black</li>
+            <li>H = Hispanic/Latino</li>
+            <li>A = Asian</li>
+            <li>I = Indigenous/American Indian/Alaska Native</li>
+            <li>M = Mixed</li>
+            <li>O = Other</li>
+            <li>U = Unknown</li>
+          </ul>
         </p>
         <p>
           Perhaps not an issue of quality, but I noticed that the data for 2024
@@ -103,32 +114,33 @@
             <p>
               As a means of providing an preliminary glance into the data, this
               bar chart illustrates the top 10 substances most commonly
-              associated with fatal accidental overdose in Allegheny County. In
+              associated with fatal accidental overdose in Allegheny County. The
+              columns Combined Od1 to Combined Od10 were pivoted to achieve this. In
               reference to Q2, we see that Fentanyl does indeed appear as the
               leading substance followed by Cocaine and Heroin. The data
               provides a clear comparison of the frequency at which these
-              substances are found in overdose cases, serving as a crucial
+              substances are found in overdose cases, which could serve as a crucial
               insight for public health interventions focused on these high-risk
-              drugs.
+              substances. Identifying the substances that appear most frequently will come in handy for future visualizations without cluttering visuals with an unwieldly number of chemicals.
             </p>
           </figcaption>
         </figure>
 
         <figure>
-          <img src="images/hotspots.png" alt="" class="projImg" />
+          <img src="images/overdoseHotspots1.png" alt="" class="projImg" />
+          <img src="images/overdoseHotspots2.png" alt="" class="projImg" />
           <figcaption>
             Fatal Overdose Hotspots
             <p>
-              This map highlights overdose hotspots within Allegheny County, PA,
+              This map highlights overdose hotspots within Allegheny County, PA
               and some surrounding areas, with darker shades indicating regions
               with higher numbers of fatal overdoses. The visualization provides
               a broad overview of the geographic aspect of the dataset while
               also effectively pinpointing areas most affected by drug
               overdoses. We can see that these hotspots are especially
               concentrated around the city of Pittsburgh and/or in less rural
-              areas, which would be expected simply due to population. Despite
-              minor data cleanliness issues, this focused approach provides a
-              clear view of critical areas. This map, combined with the bar
+              areas, which could be expected due to population size. With the addition of a 'Case Year' filter, we can also see how fatal overdoses have spread from 2007 to 2024. Despite
+              minor data cleanliness issues mentioned in 'Data Quality', this focused approach provides a clear view of critical areas. This map, combined with the bar
               chart in Figure 1, gives rise to a new question: Do certain
               substances appear more heavily in a select zip codes?
             </p>
@@ -141,18 +153,18 @@
             Top 10 Substances in Accidental Overdoses by Zip Code
             <p>
               To answer the question above, this heatmap effectively showcases
-              how different substances impact various zip codes. Darker shades
-              indicate higher numbers of incidents, pinpointing critical areas
-              for potential intervention. Fentanyl and Heroin prominently
+              how specific substances impact various zip codes (again, focusing on the top 10 substances). The darkness of the shade used
+              indicates higher numbers of incidents for that substance, pinpointing critical areas
+              for potential intervention. Fentanyl, Cocaine and Heroin prominently
               feature across numerous zip codes, reflecting their significant
               contribution to overdose statistics in the region. A visualization
               of this sort could aid in identifying hotspots where public health
               resources and preventive measures could be most urgently deployed
               more precisely than Figure 2. Though the information is no longer
-              available, it would have been interesting to see how the
-              decedents' zip codes align to this data. How much would incident
+              available in the dataset, it would have been interesting to see how the
+              decedents' zip codes align to this information. How much would incident
               zip and decedent zip vary? And, though the necessarily information
-              is not available in this dataset, would the demographics of these
+              is also not available, would the demographics of these
               hotspots match up to what we will find for the most at-risk
               groups?
             </p>
@@ -185,13 +197,13 @@
         </figure>
 
         <figure>
-          <img src="images/ageDistro.png" alt="" class="projImg" />
+          <img src="images/ageDistro.png" id="ageDistro" alt="" class="projImg" />
           <figcaption>
             Age Distribution of Fatal Overdoses
             <p>
-              As one component of Q1, this histogram displays the age
+              As one component of Q1, this table displays the age
               distribution of fatal accidental overdoses, showing a pronounced
-              peak in the 25 to 55 age range. The graph highlights that
+              peak in the 25 to 55 age range. It highlights that
               middle-aged individuals are disproportionately affected by
               overdose deaths. The assumption is that this can likely be
               attributed to exposure and access to disposable income.
@@ -206,7 +218,7 @@
             <p>
               As another component of Q1, this bar chart illustrates the
               distribution of fatal accidental overdoses by gender across
-              different racial groups, revealing significant disparities in how
+              the most prevalent racial groups, revealing significant disparities in how
               overdose impacts these demographics. Notably, there is a
               pronounced prevalence of overdoses among white males, which is
               substantially higher than in other groups. Given my own context, I
@@ -249,15 +261,12 @@
               In response to Q2, this line graph displays the trends in the
               number of fatal overdoses associated with various substances from
               2007 to 2024. Each line represents a different substance,
-              highlighting significant shifts in usage patterns over time (the
-              Combined Od columns were pivoted to achieve this). Notably, the
+              highlighting significant shifts in usage patterns over time. The
               sharp rise and subsequent decline of Fentanyl usage and the
               relatively stable trend in substances like Methadone and Morphine
               could provide insights into changing drug usage dynamics, possibly
               influenced by factors like policy changes, market availability, or
-              public health interventions. This visualization is crucial for
-              understanding how different substances have influenced overdose
-              rates over the years. Two further questions arise: What does the
+              public health interventions (or incomplete 2024 data, as mentioned previously). Two further questions arise: What does the
               prevalence of these substances look like relative to age? And to
               race?
             </p>
@@ -272,8 +281,8 @@
               In response to the question posed under Figure 8, this scatter
               plot illustrates the correlation between age and the types of
               substances involved in fatal overdoses. Each colored dot
-              represents a different substance, showing how certain drugs are
-              more prevalent in specific age groups. Notably, Fentanyl and
+              represents a different substance, showing how certain substances are
+              more prevalent in overdoses for a specific age group. Fentanyl and
               Heroin appear frequently in middle-aged individuals - Heroin usage
               seems to peak in adults 25-35 years old, while Fentanyl use peaks
               in those 25-40 - while substances like Alprazolam and Methadone
@@ -294,7 +303,7 @@
               represented racial groups, also as a follow-up to Figure 8. The
               substances, color-coded for clarity, show pronounced variations;
               for example, Fentanyl and Cocaine are predominant among the white
-              population, while Cocaine outranks Fentalnyl for those identified
+              population, while Cocaine outranks Fentanyl for those identified
               as Black. With Fentanyl having such a strong lead in essentially
               every other regard within the dataset, this is interesting. The
               impact of other substances like Methadone and Heroin varies
@@ -305,8 +314,8 @@
               substance abuse due to both historical and present day
               circumstances. Indigenous people, for example, appear as such a
               small fraction of this dataset that they are excluded here, but in
-              terms of proportion experience the highest rates of drug-related
-              death in the country. Though it's not a question that can be
+              terms of proportion <a href="https://www.cdc.gov/nchs/products/databriefs/db457.htm">experience the one of the highest rates of drug-related
+              death in the country</a>. Though it's not a question that can be
               answered with this dataset alone and would require at least the
               broader demographics of Allegheny county, I would be curious to
               see if these statistics hold true.
